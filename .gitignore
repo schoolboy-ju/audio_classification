@@ -3,3 +3,5 @@
 
 */__pycache__
 /preprocessed
+/experiments
+/UrbanSound8K

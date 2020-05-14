@@ -1,6 +1,6 @@
 {
   "exp": {
-    "name": "conv_1d_config"
+    "name": "conv_2d_config"
   },
   "data": {
     "src_root": "preprocessed",

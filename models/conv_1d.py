@@ -10,7 +10,6 @@ import tensorflow as tf
 
 from base.base_model import BaseModel
 
-
 N_CLASSES = len(os.listdir('wave_files'))
 
 
@@ -51,10 +50,7 @@ class Conv1D(BaseModel):
                          name='dense')(x)
         outputs = layers.Dense(N_CLASSES, activation='softmax', name='softmax')(x)
 
-        model = Model(inputs=inputs, outputs=outputs, name='1d_convolution')
-        model.compile(optimizer=self.config.model.optimizer,
-                      loss='categorical_crossentropy',
-                      metrics=['accuracy'])
-
-        return model
-
+        self.model = Model(inputs=inputs, outputs=outputs, name='1d_convolution')
+        self.model.compile(optimizer=self.config.model.optimizer,
+                           loss='categorical_crossentropy',
+                           metrics=['accuracy'])
