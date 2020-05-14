@@ -1,8 +1,0 @@
-{
-  "exp": {
-    "name": "conv_1d_config"
-  },
-  "model": {
-    "name": "conv_1d_model.Conv1DModel"
-  }
-}

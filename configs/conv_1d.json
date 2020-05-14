@@ -1,0 +1,15 @@
+{
+  "exp": {
+    "name": "conv_1d_config"
+  },
+  "data": {
+    "src_root": "preprocessed",
+    "sample_rate": 16000,
+    "duration_time": 1.0,
+    "test_size": 0.1,
+    "batch_size": 16
+  },
+  "model": {
+    "name": "conv_1d_model.Conv1DModel"
+  }
+}
