@@ -57,9 +57,9 @@ class DataGenerator(tf.keras.utils.Sequence):
             np.random.shuffle(self._indexes)
 
 
-class DataLoader(BaseDataLoader):
+class CommonDataLoader(BaseDataLoader):
     def __init__(self, config):
-        super(DataLoader, self).__init__(config)
+        super(CommonDataLoader, self).__init__(config)
         wav_paths = glob('{}/**'.format(self.config.data.src_root),
                          recursive=True)
         wav_paths = [x.replace(os.sep, '/')

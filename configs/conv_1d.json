@@ -10,6 +10,13 @@
     "batch_size": 16
   },
   "model": {
-    "name": "conv_1d_model.Conv1DModel"
+    "learning_rate": 0.001,
+    "optimizer": "adam"
+  },
+  "trainer":{
+    "num_epochs": 20,
+    "batch_size": 64,
+    "validation_split":0.25,
+    "verbose_training": true
   }
 }
