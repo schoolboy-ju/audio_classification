@@ -3,7 +3,8 @@ class BaseModel(object):
         self.config = config
         self.model = None
 
-    # save function that saves the checkpoint in the path defined in the configs file
+    # save function that saves the checkpoint in the path defined in the configs
+    # file
     def save(self, checkpoint_path):
         if self.model is None:
             raise Exception("You have to build the model first.")
@@ -12,7 +13,8 @@ class BaseModel(object):
         self.model.save_weights(checkpoint_path)
         print("Model saved")
 
-    # load latest checkpoint from the experiment path defined in the configs file
+    # load latest checkpoint from the experiment path defined in the configs
+    # file
     def load(self, checkpoint_path):
         if self.model is None:
             raise Exception("You have to build the model first.")
