@@ -1,7 +1,10 @@
+# files
 .idea
+.ipynb_checkpoints
 .DS_Store
+shuffled_idxs.npy
 
+# directories
 */__pycache__
-/preprocessed
-/experiments
 /UrbanSound8K
+/urbansound8k_hdf
