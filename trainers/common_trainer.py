@@ -14,6 +14,10 @@ class CommonTrainer(BaseTrain):
         self._init_callbacks()
 
     def _init_callbacks(self):
+
+        if not os.path.exists(self.config.callbacks.checkpoint_dir):
+            os.makedirs(self.config.callbacks.checkpoint_dir)
+
         self.callbacks.append(
             ModelCheckpoint(
                 filepath=os.path.join(
@@ -35,6 +39,9 @@ class CommonTrainer(BaseTrain):
                 write_graph=self.config.callbacks.tensorboard_write_graph,
             )
         )
+
+
+
 
     def train(self):
         history = self.model.fit(

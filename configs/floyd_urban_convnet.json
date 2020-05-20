@@ -1,0 +1,39 @@
+{
+  "exp": {
+    "name": "hdf_conv_1d_config"
+  },
+  "data": {
+    "train_hdf_path": "/urbansound8k_hdf/train.h5",
+    "validation_hdf_path": "/urbansound8k_hdf/validation.h5",
+    "test_hdf_path": "/urbansound8k_hdf/test.h5",
+    "sample_rate": 44100,
+    "duration_time": 4.0,
+    "n_classes": 10
+  },
+  "model": {
+    "n_dft": 2048,
+    "n_hop": 512,
+    "padding": "same",
+    "n_mels": 128,
+    "power_melgram": 2.0,
+    "return_decibel_melgram": true,
+    "trainable_fb": false,
+    "trainable_kernel": false,
+    "learning_rate": 0.001,
+    "optimizer": "adam"
+  },
+  "trainer": {
+    "num_epochs": 100,
+    "batch_size": 32,
+    "shuffle": "batch",
+    "verbose_training": true
+  },
+  "callbacks":{
+    "checkpoint_monitor": "val_loss",
+    "checkpoint_mode": "auto",
+    "checkpoint_save_best_only": true,
+    "checkpoint_save_weights_only": false,
+    "checkpoint_verbose": true,
+    "tensorboard_write_graph": true
+  }
+}

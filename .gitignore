@@ -2,6 +2,8 @@
 .idea
 .ipynb_checkpoints
 .DS_Store
+.floydexpt
+.floydignore
 shuffled_idxs.npy
 
 # directories
