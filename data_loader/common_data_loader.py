@@ -60,6 +60,7 @@ class DataGenerator(tf.keras.utils.Sequence):
 class CommonDataLoader(BaseDataLoader):
     def __init__(self, config):
         super(CommonDataLoader, self).__init__(config)
+        # TODO(joohyun): change to proper path
         wav_paths = glob('{}/**'.format(self.config.data.src_root),
                          recursive=True)
         wav_paths = [x.replace(os.sep, '/')
