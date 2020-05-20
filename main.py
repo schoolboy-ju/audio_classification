@@ -1,6 +1,6 @@
 from data_loader.urbansound8k_hdf5_data_loader import DataLoader
 from models.urban_convnet import UrbanConvNet
-# from trainers.common_trainer import CommonTrainer
+from trainers.common_trainer import CommonTrainer
 from utils.configs import process_config
 from utils.args import get_args
 
@@ -21,6 +21,7 @@ def main():
     print("Create the model.")
     model = UrbanConvNet(config)
     model.model.summary()
+
 
     print("Create the trainer")
     trainer = CommonTrainer(model.model,

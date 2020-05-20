@@ -16,12 +16,15 @@ class CommonTrainer(BaseTrain):
     def _init_callbacks(self):
         self.callbacks.append(
             ModelCheckpoint(
-                filepath=os.path.join(self.config.callbacks.checkpoint_dir,
-                                      '%s-{epoch:02d}-{val_loss:.2f}.hdf5' % self.config.exp.name),
+                filepath=os.path.join(
+                    self.config.callbacks.checkpoint_dir,
+                    '%s-{epoch:02d}-{val_loss:.2f}.hdf5' % self.config.exp.name
+                ),
                 monitor=self.config.callbacks.checkpoint_monitor,
                 mode=self.config.callbacks.checkpoint_mode,
                 save_best_only=self.config.callbacks.checkpoint_save_best_only,
-                save_weights_only=self.config.callbacks.checkpoint_save_weights_only,
+                save_weights_only=
+                self.config.callbacks.checkpoint_save_weights_only,
                 verbose=self.config.callbacks.checkpoint_verbose,
             )
         )
@@ -35,11 +38,13 @@ class CommonTrainer(BaseTrain):
 
     def train(self):
         history = self.model.fit(
-            self.train_data, validation_data=self.val_data,
+            self.train_data[0], self.train_data[1],
+            validation_data=(self.val_data[0], self.val_data[1]),
             epochs=self.config.trainer.num_epochs,
             verbose=self.config.trainer.verbose_training,
             batch_size=self.config.trainer.batch_size,
             callbacks=self.callbacks,
+            shuffle=False
         )
         self.loss.extend(history.history['loss'])
         self.acc.extend(history.history['accuracy'])

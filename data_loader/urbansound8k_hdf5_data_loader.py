@@ -19,12 +19,10 @@ class DataLoader(BaseDataLoader):
     def get_validation_data(self):
         self._validation = h5py.File(self.config.data.validation_hdf_path, 'r')
         return self._validation['raw'], self._validation['label']
-        pass
 
     def get_test_data(self):
         self._test = h5py.File(self.config.data.test_hdf_path, 'r')
         return self._test['raw'], self._test['label']
-        pass
 
     def close_train_data_file(self):
         self._train.close()

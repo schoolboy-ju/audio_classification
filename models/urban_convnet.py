@@ -17,9 +17,11 @@ class UrbanConvNet(BaseModel):
         self.build_model()
 
     def build_model(self):
-        inputs = layers.Input(shape=(1, int(self.config.data.sample_rate *
-                                            self.config.data.duration_time)),
+        inputs = layers.Input(shape=int(self.config.data.sample_rate *
+                                        self.config.data.duration_time),
                               name='input')
+        x = layers.Reshape((1, int(self.config.data.sample_rate *
+                                   self.config.data.duration_time)))(inputs)
         x = Melspectrogram(n_dft=self.config.model.n_dft,
                            n_hop=self.config.model.n_hop,
                            padding=self.config.model.padding,
@@ -32,7 +34,7 @@ class UrbanConvNet(BaseModel):
                            self.config.model.return_decibel_melgram,
                            trainable_fb=self.config.model.trainable_fb,
                            trainable_kernel=self.config.model.trainable_kernel,
-                           name='melbands')(inputs)
+                           name='melbands')(x)
         x = Normalization2D(str_axis='batch', name='batch_norm')(x)
         x = layers.Conv2D(32, (3, 3), padding='same', name='conv1',
                           kernel_initializer='he_normal')(x)

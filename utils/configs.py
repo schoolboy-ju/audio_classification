@@ -27,8 +27,12 @@ def process_config(json_file):
         os.path.join("experiments",
                      time.strftime("%Y-%m-%d/", time.localtime()),
                      config.exp.name, "logs/")
+
+    print(config.callbacks.tensorboard_log_dir)
     config.callbacks.checkpoint_dir = \
         os.path.join("experiments",
                      time.strftime("%Y-%m-%d/", time.localtime()),
                      config.exp.name, "checkpoints/")
+
+    print(config.callbacks.checkpoint_dir)
     return config

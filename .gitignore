@@ -8,3 +8,4 @@ shuffled_idxs.npy
 */__pycache__
 /UrbanSound8K
 /urbansound8k_hdf
+/experiments
