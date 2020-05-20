@@ -19,7 +19,8 @@ class Conv1D(BaseModel):
         self.build_model()
 
     def build_model(self):
-        inputs = layers.Input(shape=(1, int(self.config.data.sample_rate * self.config.data.duration_time)),
+        inputs = layers.Input(shape=(1, int(self.config.data.sample_rate *
+                                            self.config.data.duration_time)),
                               name='input')
         x = Melspectrogram(n_dft=512, n_hop=160, padding='same',
                            sr=self.config.data.sample_rate, n_mels=128,

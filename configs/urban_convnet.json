@@ -7,14 +7,15 @@
     "validation_hdf_path": "urbansound8k_hdf/validation.h5",
     "test_hdf_path": "urbansound8k_hdf/test.h5",
     "sample_rate": 44100,
-    "duration_time": 4.0
+    "duration_time": 4.0,
+    "n_classes": 10
   },
   "model": {
-    "n_dft": 512,
-    "n_hop": 160,
+    "n_dft": 2048,
+    "n_hop": 512,
     "padding": "same",
     "n_mels": 128,
-    "power_melgram": 1.0,
+    "power_melgram": 2.0,
     "return_decibel_melgram": true,
     "trainable_fb": false,
     "trainable_kernel": false,
